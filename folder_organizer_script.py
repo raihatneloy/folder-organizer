@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from os import listdir, mkdir, rename
 from os.path import isfile, join, exists, expanduser, abspath
 
