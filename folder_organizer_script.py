@@ -1,6 +1,7 @@
 from os import listdir, mkdir, rename
 from os.path import isfile, join, exists, expanduser, abspath
-from sys import argv
+
+import click
 
 
 source_folder = '/home/raihatneloy/Downloads'
@@ -44,10 +45,12 @@ def map_extension_to_folder(extension, name):
     move_file_to_folder(name, folder_name)
 
 
-def main():
+@click.command()
+@click.argument('sourcefolder')
+def main(sourcefolder):
     global source_folder, items_list
 
-    source_folder = abspath(expanduser(argv[1]))
+    source_folder = abspath(expanduser(sourcefolder))
     items_list = listdir(source_folder)
 
     for item_name in items_list:
