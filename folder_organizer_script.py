@@ -1,5 +1,6 @@
-from os import listdir, mkdir
-from os.path import isfile, join, exists
+from os import listdir, mkdir, rename
+from os.path import isfile, join, exists, expanduser, abspath
+from sys import argv
 
 
 source_folder = '/home/raihatneloy/Downloads'
@@ -44,6 +45,11 @@ def map_extension_to_folder(extension, name):
 
 
 def main():
+    global source_folder, items_list
+
+    source_folder = abspath(expanduser(argv[1]))
+    items_list = listdir(source_folder)
+
     for item_name in items_list:
         if isfile(join(source_folder, item_name)):
             extension = get_file_extension(item_name)
