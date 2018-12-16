@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 from os import listdir, mkdir, rename
 from os.path import isfile, join, exists, expanduser, abspath
 
@@ -32,7 +30,8 @@ def move_file_to_folder(file_name, folder_name):
     old_path = join(source_folder, file_name)
     new_path = join(source_folder, folder_name, file_name)
 
-    rename(old_path, new_path)
+    print old_path, '|#|', new_path
+    # rename(old_path, new_path)
 
 
 def map_extension_to_folder(extension, name):
